@@ -1,0 +1,40 @@
+{
+  "_format": "hh-sol-cache-2",
+  "files": {
+    "C:\\Users\\Mazen Albeik\\Desktop\\STUDY\\University\\Blockchain\\web3\\smartContract\\contracts\\MsgDapp.sol": {
+      "lastModificationDate": 1684184788480,
+      "contentHash": "2884c53cf2999feda129a1fd452b68d4",
+      "sourceName": "contracts/MsgDapp.sol",
+      "solcConfig": {
+        "version": "0.8.18",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.7.0 <0.9.0"
+      ],
+      "artifacts": [
+        "MsgDapp"
+      ]
+    }
+  }
+}
