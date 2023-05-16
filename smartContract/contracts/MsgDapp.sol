@@ -51,6 +51,10 @@ contract MsgDapp{
         return allUsers;
     }
 
+    function test() public pure returns(string memory){
+        return "hello world";
+    }
+
     //GET USERNAME
     // function getUsername(address pubkey) external view returns(string memory){
     //     require(checkUserExists(pubkey), "User is not registered");

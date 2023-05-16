@@ -35,6 +35,41 @@
       "artifacts": [
         "MsgDapp"
       ]
+    },
+    "C:\\Users\\Mazen Albeik\\Desktop\\STUDY\\University\\Blockchain\\web3Project\\smartContract\\contracts\\MsgDapp.sol": {
+      "lastModificationDate": 1684262093009,
+      "contentHash": "864e70d729998d06be2f7b8acb7e9425",
+      "sourceName": "contracts/MsgDapp.sol",
+      "solcConfig": {
+        "version": "0.8.18",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.7.0 <0.9.0"
+      ],
+      "artifacts": [
+        "MsgDapp"
+      ]
     }
   }
 }

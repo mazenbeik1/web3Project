@@ -11,7 +11,8 @@ function App() {
 
 	const [provider,setProvider] = useState("")
 	const [account,setAccount] = useState("")
-	const [isConnected, setIsConnected] = ("false")
+	const [isConnected, setIsConnected] = useState("false")
+	const [contractState,setContractState] = useState(null);
 
 	const getAccount = async ()=>{
 		try{
@@ -59,20 +60,27 @@ function App() {
 		return data;
 	}
 
+	const getUsers = async()=>{
+		const users = await contractState.getAllUsers();
+		console.log(users)
+	}
+
 	const connectContract = async()=>{
 		try{
 			const web3modal = new Web3Modal();
 			const connection = await web3modal.connect();
-			const prov = new ethers.BrowserProvider(connection)
+			// const prov = new ethers.BrowserProvider(connection);
+			const prov = new ethers.providers.Web3Provider(connection);
 			const signer = prov.getSigner();
 			// const contract = fetchContract(signer);
-			const contract = new ethers.Contract(MsgDappAddress, MsgDappABI, prov)
+			const contract = new ethers.Contract(MsgDappAddress, MsgDappABI, signer)
 			console.log(contract)
 			// await contract.createAccount.send("mzmz")
-			const users = await contract.getAllUsers();
-			console.log(users)
+			// await contract.createAccount("react");
+			// const users = await contract.getAllUsers();
+			// console.log(users)
 
-			contract.createUser("react");
+			setContractState(contract);
 			
 			return contract;
 
@@ -91,6 +99,22 @@ function App() {
 		}
 	}
 
+	const createAccount = async ()=>{
+		try{
+
+			const web3modal = new Web3Modal();
+				const connection = await web3modal.connect();
+				// const prov = new ethers.BrowserProvider(connection);
+				const prov = new ethers.providers.Web3Provider(connection);
+				const signer = prov.getSigner();
+				// const contract = fetchContract(signer);
+				const contract = new ethers.Contract(MsgDappAddress, MsgDappABI, signer)
+			await contract.createAccount("react");
+		} catch(err){
+			console.log(err)
+		}
+	}
+
 	const converTime = (time)=>{
 		const newTime = new Date(time.toNumber());
 
@@ -105,6 +129,8 @@ return (
 		<Button value={"primary"} onClick={connectContract}>Connect Contract</Button>
 		<Button value={"primary"} onClick={connectAccount}>Connect Account</Button>
 		<Button value={"primary"} onClick={getAccount}>Get Account</Button>
+		<Button value={"primary"} onClick={createAccount}>Create account</Button>
+		<Button value={"primary"} onClick={getUsers}>Get Users</Button>
 
 	</>
 	)
