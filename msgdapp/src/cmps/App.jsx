@@ -1,11 +1,11 @@
 import { useState } from 'react'
 import { ethers } from 'ethers'
-import Login from './Login'
+import Signup from './Signup'
 import Web3Modal from 'web3modal'
-// import 
-// import { Web3Provider } from '@web3-react/core';
 import { MsgDappAddress,MsgDappABI } from '../consts/consts'
 import { Button } from 'react-bootstrap'
+import {BrowserRouter as Router , Routes , Route} from 'react-router-dom'
+import Chat from './Chat'
 
 function App() {
 
@@ -69,31 +69,14 @@ function App() {
 		try{
 			const web3modal = new Web3Modal();
 			const connection = await web3modal.connect();
-			// const prov = new ethers.BrowserProvider(connection);
 			const prov = new ethers.providers.Web3Provider(connection);
 			const signer = prov.getSigner();
-			// const contract = fetchContract(signer);
 			const contract = new ethers.Contract(MsgDappAddress, MsgDappABI, signer)
 			console.log(contract)
-			// await contract.createAccount.send("mzmz")
-			// await contract.createAccount("react");
-			// const users = await contract.getAllUsers();
-			// console.log(users)
 
 			setContractState(contract);
 			
 			return contract;
-
-			// const contract = new web3.eth.Contract(MsgDappABI, MsgDappAddress);
-			// console.log("deon")
-			// return contract;
-
-			// const prov = new ethers.providers.Web3Provider(window.ethereum);
-			// await provider.send("eth_requestAccounts",[]);
-			// const signer = provider.getSigner();
-			// const contractInstance = new ethers.Contract(MsgDappABI, MsgDappAddress, signer);
-			// const userList = await contractInstance.getAllUsers();
-			// console.log(userList)
 		}catch(err){
 			console.log(err)
 		}
@@ -124,13 +107,23 @@ function App() {
 
 return (
 	<>
-		{/* <Login get={getWallet} connect={connectWallet}/> */}
-		
-		<Button value={"primary"} onClick={connectContract}>Connect Contract</Button>
+		<Router>
+				<div className="bkgrd">
+			<Routes>
+					<Route exact path='/signup' element={<Signup createAccount={createAccount} connectAccount={connectAccount} account={account} connectContract={connectContract}/>} />
+					<Route exact path='/' element={<Chat converTime={converTime} connectContract={connectContract} connectAccount={connectAccount} getAccount={getAccount} account={account}/>} />
+			</Routes>
+
+				</div>
+		</Router>
+		{/* <Button value={"primary"} onClick={connectContract}>Connect Contract</Button>
 		<Button value={"primary"} onClick={connectAccount}>Connect Account</Button>
 		<Button value={"primary"} onClick={getAccount}>Get Account</Button>
 		<Button value={"primary"} onClick={createAccount}>Create account</Button>
-		<Button value={"primary"} onClick={getUsers}>Get Users</Button>
+		<Button value={"primary"} onClick={getUsers}>Get Users</Button> */}
+
+
+
 
 	</>
 	)
