@@ -4,7 +4,8 @@ const Message = (props) => {
             <div className="Message">
 
                 <h4>{props.data}</h4>
-                <p>{props.sender} at {props.time}</p>
+                <br />
+                <p>{props.sender}</p>
             </div>
             <br />
         </>

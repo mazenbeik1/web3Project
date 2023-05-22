@@ -8,17 +8,6 @@ const Input = (props) => {
     const [msg,setMsg] = useState("");
     const navigate = useNavigate();
 
-    const send = async ()=>{
-        if(props.account == ""){
-            navigate("/signup")
-            alert("METAMASK NOT CONNECTED")
-        }else{
-            const contract = await props.connectContract();
-            await contract.sendMessage(msg);
-            console.log(await contract.getMessages())
-        }
-    }
-
     return ( 
         <>
             <InputGroup className="mb-3">
@@ -28,7 +17,7 @@ const Input = (props) => {
                 aria-describedby="basic-addon2"
                 onChange={(e)=>setMsg(e.target.value)}
                 />
-                <Button variant="secondary" id="button-addon2" style={{marginLeft:"5px"}} onClick={send}>
+                <Button variant="secondary" id="button-addon2" style={{marginLeft:"5px"}} onClick={()=>{props.send(msg)}}>
                 Button
                 </Button>
             </InputGroup>

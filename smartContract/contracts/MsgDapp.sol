@@ -55,6 +55,15 @@ contract MsgDapp{
         return "hello world";
     }
 
+    function sendMessage(string calldata _msg) external{
+        require(checkUserExists(msg.sender), "Create an account first");
+        // require(checkUserExists(friend_key), "User is not registered");
+        // require(checkAlreadyFriends(msg.sender, friend_key), "You are not friend with the given user");
+
+        // bytes32 chatCode = _getChatCode(msg.sender, friend_key);
+        message memory newMsg = message(msg.sender, block.timestamp, _msg);
+        allMessages.push(newMsg);
+    }
     //GET USERNAME
     // function getUsername(address pubkey) external view returns(string memory){
     //     require(checkUserExists(pubkey), "User is not registered");
@@ -107,15 +116,6 @@ contract MsgDapp{
     // }
 
     //SEND MESSAGE
-    function sendMessage(string calldata _msg) external{
-        require(checkUserExists(msg.sender), "Create an account first");
-        // require(checkUserExists(friend_key), "User is not registered");
-        // require(checkAlreadyFriends(msg.sender, friend_key), "You are not friend with the given user");
-
-        // bytes32 chatCode = _getChatCode(msg.sender, friend_key);
-        message memory newMsg = message(msg.sender, block.timestamp, _msg);
-        allMessages.push(newMsg);
-    }
 
     //READ MESSAGE
     // function readMessage(address friend_key) external view returns(message[] memory){

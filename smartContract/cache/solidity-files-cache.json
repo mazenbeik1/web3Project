@@ -37,8 +37,8 @@
       ]
     },
     "C:\\Users\\Mazen Albeik\\Desktop\\STUDY\\University\\Blockchain\\web3Project\\smartContract\\contracts\\MsgDapp.sol": {
-      "lastModificationDate": 1684262093009,
-      "contentHash": "864e70d729998d06be2f7b8acb7e9425",
+      "lastModificationDate": 1684414411266,
+      "contentHash": "825a7c488c73c09e8d7f305db685fd30",
       "sourceName": "contracts/MsgDapp.sol",
       "solcConfig": {
         "version": "0.8.18",
