@@ -11,8 +11,7 @@ import Chat from './Chat'
 function App() {
 
 	const [msgs,setMsgs] = useState([
-		{sender:"mzmz", time:"1684266046", data:"Hello world"}, 
-		{sender:"mzmz", time:"1684266047", data:"Hello world2"},
+		{sender:"msgdapp", time:"1684266046", data:"Welcome to msgdapp"},
 	])
 
 	const [account,setAccount] = useState("")
@@ -66,6 +65,7 @@ function App() {
 	// useEffect(()=>{
 	// 	// initMsgs()
 	// },[])
+
 
 return (
 	<>

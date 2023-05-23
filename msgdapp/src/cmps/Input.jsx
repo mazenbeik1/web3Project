@@ -18,7 +18,7 @@ const Input = (props) => {
                 onChange={(e)=>setMsg(e.target.value)}
                 />
                 <Button variant="secondary" id="button-addon2" style={{marginLeft:"5px"}} onClick={()=>{props.send(msg)}}>
-                Button
+                SEND
                 </Button>
             </InputGroup>
         </>

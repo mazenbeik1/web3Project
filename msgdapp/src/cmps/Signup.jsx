@@ -68,11 +68,11 @@ const Signup = (props) => {
                                     <Form.Control type="text" placeholder="ENTER USERNAME" name='privateUser' value={username} onChange={(e)=>setUsername(e.target.value)}/>
                                 </FloatingLabel>
                                     
-                                <Button className='secondaryBtn' variant="primary" onClick={async()=> await createAccount(username)}>Signup</Button>
+                                <Button className='secondaryBtn' variant="primary" onClick={async()=> await createAccount(username)}>Connect</Button>
                             </form>
                         </Card.Body>
-                        <Card.Text>or</Card.Text>
-                        <Button className='secondaryBtn' variant="secondary" onClick={async()=>{await connectAccount();}}>Connect</Button>
+                        {/* <Card.Text>or</Card.Text>
+                        <Button className='secondaryBtn' variant="secondary" onClick={async()=>{await connectAccount();}}>Connect</Button> */}
                         {/* <Button variant="primary">Go somewhere</Button> */}
                     </Card.Body>
                 </Card>
